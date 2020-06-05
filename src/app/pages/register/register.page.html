@@ -1,0 +1,70 @@
+<ion-header no-border>
+  <ion-toolbar class="text-center">
+    <ion-title color="primary" class="text-center">
+      Create an account</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <ion-row>
+      <ion-col style="margin-left: auto; margin-right: auto;" size="12">
+        <ion-item style="--background: whitesmoke;" class="ion-no-padding">
+          <ion-label position="floating">Username</ion-label>
+          <ion-input formControlName="username" inputmode="text"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.username">
+          <ng-container
+            *ngIf="username.hasError(error.type) && (username.diry || username.touched)"
+          >
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+
+        <ion-item style="--background: whitesmoke;" class="ion-no-padding">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" inputmode="email"></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.email">
+          <ng-container
+            *ngIf="email.hasError(error.type) && (email.diry || email.touched)"
+          >
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+
+        <ion-item style="--background: whitesmoke;" class="ion-no-padding">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input
+            formControlName="password"
+            inputmode="password"
+            type="password"
+          ></ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.password">
+          <ng-container
+            *ngIf="password.hasError(error.type) && (password.diry || password.touched)"
+          >
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button
+          size="large"
+          type="submit"
+          [disabled]="!registerForm.valid"
+          expand="block"
+        >
+          Sign Up
+        </ion-button>
+
+        <div class="m-top">
+          <span>Have an account? <a [routerLink]="['/login']">Sign in</a></span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

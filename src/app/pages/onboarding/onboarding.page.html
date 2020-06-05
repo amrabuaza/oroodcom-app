@@ -1,0 +1,35 @@
+<ion-content style="--background: #f6f6f6;" class="ion-text-center">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img src="assets/2.png"></ion-img>
+      </ion-col>
+    </ion-row>
+      <ion-row>
+      <ion-col>
+        <h5>
+          Find services & professionals without the hassle
+        </h5>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button
+          style="color: #ffffff; --background: #3fc1c9;"
+          class="button-size center-button"
+          expand="block"
+          [routerLink]="['/login']"
+          >Let's started</ion-button
+        >
+        <div class="m-top">
+          <span
+            >Don't have an account?
+            <a style="color: #3fc1c9;" [routerLink]="['/register']"
+              >Sign up</a
+            ></span
+          >
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,154 @@
+<!-- <ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="white">
+      <ion-title
+        ><ion-avatar>
+          <img
+            src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
+          />
+        </ion-avatar>
+        <p style="font-size: 1rem; color: #00bcd4; text-align: center;">
+          User Name
+        </p>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list style="padding: 2rem;">
+      <ion-item [routerLink]="['/home']">Home</ion-item>
+      <ion-item [routerLink]="['/profile']">Profile</ion-item>
+      <ion-item>Contact Us</ion-item>
+      <ion-item>	<ion-select [(ngModel)]="language" (ionChange)="changeLanguage()">
+        <ion-option value="en" selected="true">English</ion-option>
+        <ion-option value="ar">Arabic</ion-option>
+      
+     </ion-select></ion-item>
+      <ion-item lines="none" [routerLink]="['/login']">Logout</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col style="margin: 0 0 0 0;" class="flex-container">
+          <div text-center class="left-side text-center"></div>
+          <div>
+            <ion-row>
+              <ion-col>
+                <ion-menu-toggle>
+                  <ion-button
+                    style="--background: transparent; --box-shadow: none;"
+                    ><ion-icon
+                      style="color: #3e3e3e; font-size: 2rem;"
+                      name="menu"
+                    ></ion-icon
+                  ></ion-button>
+                </ion-menu-toggle>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="right-side">
+            <div class="inbox-icon">
+              <ion-searchbar animated></ion-searchbar>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+			<ion-col>
+			
+				<div class="filter-container">
+					<ion-select value="recent" interface="popover">
+						<ion-select-option value="recent">Most recent</ion-select-option>
+						<ion-select-option value="az">A-Z</ion-select-option>
+						<ion-select-option value="za">Z-A</ion-select-option>
+						<ion-select-option no-border lines="none" value="featured">Featured</ion-select-option>
+					</ion-select>
+					<ion-buttons class="icons">
+						<ion-button>
+							<ion-icon slot="icon-only" name="apps"></ion-icon>
+						</ion-button>
+						<ion-button>
+							<ion-icon slot="icon-only" name="menu"></ion-icon>
+						</ion-button>
+					</ion-buttons>
+				</div>
+				<ion-card >
+          <ion-card-header>
+          <div class="card-title">
+            <ion-avatar>
+              <img src="assets/6.png" />
+            </ion-avatar>
+            <div>
+              <ion-card-title>pizza</ion-card-title>
+              <ion-card-subtitle class="star">
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star-outline"></ion-icon>
+              
+              </ion-card-subtitle>
+            </div>
+          </div>
+          <div>
+            
+            <ion-item  color="primary" (click)="showProfile()">Info</ion-item>
+          </div>
+          </ion-card-header>
+              
+          <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile, and
+          climb a mountain or spend...
+          </ion-card-content>
+      </ion-card>
+      
+			</ion-col>
+		</ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" *ngFor="let item of cardInf">
+              <ion-card>
+                <img src="assets/6.png" />
+                <ion-card-content>
+                  <ion-card-title
+                    style="text-align: center;"
+                    class="text-center"
+                  >
+                  "{{ title }}"
+                  </ion-card-title>
+                  <p style="text-align: center;" class="text-center">
+                    "{{ description }}"
+                  </p>
+                </ion-card-content>
+                <ion-row class="cardfooter">
+                  <ion-col size="12">
+                    <p style="color: tomato;">199 JD</p>
+                  </ion-col>
+               
+                </ion-row>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-router-outlet id="main"></ion-router-outlet> -->
+<p *ngFor="let item of items">
+  hi
+
+  <ion-label>{{item.name}}</ion-label>
+</p>

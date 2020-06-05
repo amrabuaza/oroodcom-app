@@ -1,0 +1,46 @@
+<ion-content style="--background: whitesmoke;">
+  <ion-grid class="column-evenly">
+    <form #form="ngForm" (ngSubmit)="login(form)">
+      <ion-row>
+        <ion-col style="margin-left: auto; margin-right: auto;" size="12">
+          <ion-item style="--background: whitesmoke;" class="ion-no-padding">
+            <ion-label position="floating">Username</ion-label>
+            <ion-input name="username" type="text" ngModel required></ion-input>
+          </ion-item>
+
+          <ion-item style="--background: whitesmoke;" class="ion-no-padding">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input
+              name="password"
+              type="password"
+              ngModel
+              required
+            ></ion-input>
+          </ion-item>
+          <div *ngIf="error" class="alert alert-danger">
+            {{ error }}
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button
+            size="large"
+            type="submit"
+            [disabled]="form.invalid || error"
+            expand="block"
+          >
+            Sign In
+          </ion-button>
+
+          <div class="m-top">
+            <span
+              >Don't have an account?
+              <a [routerLink]="['/register']">Sign up</a></span
+            >
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

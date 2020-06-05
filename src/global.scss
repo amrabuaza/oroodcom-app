@@ -1,0 +1,145 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+/* Google font import */
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+ion-searchbar input {
+  border-bottom: 2px solid #223e5c !important;
+  box-shadow: none !important;
+}
+
+.ios ion-searchbar input {
+  border-bottom: 2px solid #223e5c !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  --background: #f9fafb;
+}
+
+.searchbar-input-container,
+.sc-ion-searchbar-ios {
+  /*  margin-left: 0.5em;
+    margin-right: 0.5em; */
+  width: auto;
+}
+
+.title-ios {
+  padding-right: 1.2rem;
+}
+
+.ios ion-header {
+  --background: #f9fafb !important;
+}
+
+.column-evenly {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+ion-button {
+  font-weight: 500 !important;
+  font-size: 11pt !important;
+  text-transform: unset !important;
+}
+
+.button-size {
+  height: 34pt;
+  width: 49%;
+  margin: auto;
+}
+
+ion-card {
+  box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.06) !important;
+  border-radius: 6px !important;
+}
+
+/*
+ion-content {
+	--padding-start: 1rem;
+	--padding-end: 1rem;
+}
+*/
+.m-top {
+  margin-top: 1rem;
+  text-align: center;
+
+  span {
+    font-size: 9pt;
+    line-height: 18pt;
+    color: rgba(46, 46, 46, 0.473);
+
+    a {
+      font-weight: 600;
+      text-decoration: none;
+      color: #3fc1c9;
+    }
+  }
+}
+
+.star {
+  font-weight: 500;
+  font-size: 11pt;
+  color: #a6b0bf;
+}
+
+ion-avatar {
+  width: 46pt;
+  height: 46pt;
+  margin-right: 0.8em;
+}
+
+.modal-transparency {
+  --height: 25rem !important;
+  --margin: 1rem !important;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  --border-radius: 25px 25px 0px 0px;
+}
+
+.agree-terms {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 12px;
+  margin: 2em 0;
+
+  a {
+    color: #3fc1c9;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  span {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  ion-checkbox {
+    margin-right: 1em;
+  }
+}

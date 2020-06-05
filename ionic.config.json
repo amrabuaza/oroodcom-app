@@ -1,0 +1,7 @@
+{
+  "name": "Happ",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

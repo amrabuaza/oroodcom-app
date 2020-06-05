@@ -1,0 +1,39 @@
+<ion-header no-border>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+		<ion-back-button defaultHref="/"></ion-back-button>
+		</ion-buttons>
+		<ion-title color="secondary">Moving</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+				<ion-searchbar animated></ion-searchbar>
+
+				
+				<div class="filter-container">
+					<ion-select value="recent" interface="popover">
+						<ion-select-option value="recent">Most recent</ion-select-option>
+						<ion-select-option value="az">A-Z</ion-select-option>
+						<ion-select-option value="za">Z-A</ion-select-option>
+						<ion-select-option value="featured">Featured</ion-select-option>
+					</ion-select>
+					<ion-buttons class="icons">
+						<ion-button>
+							<ion-icon slot="icon-only" name="apps"></ion-icon>
+						</ion-button>
+						<ion-button>
+							<ion-icon slot="icon-only" name="menu"></ion-icon>
+						</ion-button>
+					</ion-buttons>
+				</div>
+				
+				<app-card-categories></app-card-categories>
+				<app-card-categories></app-card-categories>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

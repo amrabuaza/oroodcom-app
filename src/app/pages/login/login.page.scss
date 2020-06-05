@@ -1,0 +1,53 @@
+ion-grid {
+  margin-right: 1em;
+  margin-left: 1em;
+  height: 100%;
+}
+
+ion-title {
+  font-weight: 600;
+  text-align: end;
+  margin: 2em 0.5em 0 0;
+}
+
+ion-item {
+  margin-top: 1em;
+
+  ion-label {
+    font-weight: 600;
+    font-size: 18px;
+    color: #223e5c;
+  }
+}
+
+.input-help {
+  font-size: 10px;
+  text-align: right;
+  color: #3fc1c9;
+}
+
+.agree-terms {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 12px;
+  margin: 2em 0;
+
+  a {
+    color: #3fc1c9;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  span {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  ion-checkbox {
+    margin-right: 1em;
+  }
+}
+ion-img {
+  width: 50%;
+  margin: auto;
+}
