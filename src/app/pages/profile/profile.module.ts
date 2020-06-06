@@ -1,32 +1,32 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { Routes, RouterModule } from "@angular/router";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { ProfilePage } from './profile.page';
-import { ModalFormPage } from '../modal-form/modal-form.page';
-import { ModalFormPageModule } from '../modal-form/modal-form.module';
+import { ProfilePage } from "./profile.page";
+import { ModalFormPage } from "../modal-form/modal-form.page";
+import { ModalFormPageModule } from "../modal-form/modal-form.module";
+import { TranslateModule } from "@ngx-translate/core";
 
 const routes: Routes = [
   {
-    path: '',
-    component: ProfilePage
-  }
+    path: "",
+    component: ProfilePage,
+  },
 ];
 
 @NgModule({
-  entryComponents: [
-    ModalFormPage
-  ],
+  entryComponents: [ModalFormPage],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     ModalFormPageModule,
-    RouterModule.forChild(routes)
+    TranslateModule,
+    RouterModule.forChild(routes),
   ],
-  declarations: [ProfilePage]
+  declarations: [ProfilePage],
 })
 export class ProfilePageModule {}

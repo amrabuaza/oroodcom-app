@@ -6,11 +6,16 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <div>
+    <img style="padding: 2rem;" src="assets/2.png" />
+  </div>
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <ion-row>
       <ion-col style="margin-left: auto; margin-right: auto;" size="12">
-        <ion-item style="--background: whitesmoke;" class="ion-no-padding">
-          <ion-label position="floating">Username</ion-label>
+        <ion-item class="ion-no-padding">
+          <ion-label style="font-size: 14px;" position="floating"
+            >Username</ion-label
+          >
           <ion-input formControlName="username" inputmode="text"></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.username">
@@ -21,8 +26,10 @@
           </ng-container>
         </div>
 
-        <ion-item style="--background: whitesmoke;" class="ion-no-padding">
-          <ion-label position="floating">Email</ion-label>
+        <ion-item class="ion-no-padding">
+          <ion-label style="font-size: 14px;" position="floating"
+            >Email</ion-label
+          >
           <ion-input formControlName="email" inputmode="email"></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.email">
@@ -33,8 +40,10 @@
           </ng-container>
         </div>
 
-        <ion-item style="--background: whitesmoke;" class="ion-no-padding">
-          <ion-label position="floating">Password</ion-label>
+        <ion-item class="ion-no-padding">
+          <ion-label style="font-size: 14px;" position="floating"
+            >Password</ion-label
+          >
           <ion-input
             formControlName="password"
             inputmode="password"

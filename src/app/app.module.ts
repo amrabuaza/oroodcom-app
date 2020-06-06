@@ -10,7 +10,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
-
+import { TranslateLaService } from "./services/translate-la.service";
+import { IonicStorageModule } from "@ionic/storage";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -23,6 +24,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -33,6 +35,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     StatusBar,
+    TranslateLaService,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],

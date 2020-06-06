@@ -73,10 +73,10 @@ ion-col h5 {
   justify-content: center;
   flex-direction: column;
   padding: 1em 0;
-  //   margin-left: auto;
-  //   margin-right: auto;
-  // width: 109px !important;
-  //   margin-top: -42px !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: 109px !important;
+  margin-top: -42px !important;
 }
 .icon-card {
   display: flex;
@@ -207,4 +207,10 @@ ion-item {
 ion-img {
   width: 30%;
   margin: auto;
+}
+ion-select div .select-icon {
+  display: none !important;
+}
+ion-select div .select-text {
+  display: none !important;
 }

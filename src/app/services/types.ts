@@ -25,7 +25,7 @@ export interface IRegister {
 
 /* User */
 
-export interface IGetUserData {
+export interface IUser {
   access_token: string;
   username: string;
   email: string;
@@ -57,7 +57,7 @@ export interface ICategory {
 }
 
 export interface ICategoryResponse {
-  categroies: ICategory[];
+  names: ICategory[];
 }
 
 /* Shop */

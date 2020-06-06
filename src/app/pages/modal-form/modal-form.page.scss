@@ -1,15 +1,17 @@
 app-modal-form {
-    --height: 80%;
+  --height: 80%;
 }
 
 ion-label {
-    font-size: 16pt !important;
-    font-weight: 500;
-    color: #223E5C;
+  font-size: 16pt !important;
+  font-weight: 500;
+  color: #223e5c;
 
-    & span {
-        font-size: 10pt;
-        color: rgba(0, 0, 0, 0.6);
-    }
+  & span {
+    font-size: 10pt;
+    color: rgba(0, 0, 0, 0.6);
+  }
 }
-
+.error-message {
+  color: red;
+}

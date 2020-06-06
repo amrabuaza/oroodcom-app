@@ -5,7 +5,6 @@ ion-content {
 ion-grid {
   margin-right: 1em;
   margin-left: 1em;
-  // height: 100%;
 }
 
 ion-title {
@@ -15,11 +14,13 @@ ion-title {
 }
 
 ion-item {
+  --background: #f9fafb;
   margin-top: 1em;
 
   ion-label {
     font-weight: 600;
     font-size: 18px;
+    padding-left: 1rem;
     color: #223e5c;
   }
 }

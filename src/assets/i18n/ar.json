@@ -1,0 +1,37 @@
+{
+  "home": {
+    "name": "الإسم",
+    "description": "الوصف",
+    "categories": "التصنيفات",
+    "all": "الكل"
+  },
+  "user": {
+    "error_messages_username_required": "إسم المستخدم مطلوب !",
+    "error_messages_username_minlength": "إسم المستخدم يجب ان يحتوي 4 احرف على الأقل !",
+    "error_messages_username_taken": "إسم المستخدم مستخدم بالفعل !",
+
+    "error_messages_email_required": "الإيميل مطلوب !",
+    "error_messages_email_pattern": "الإيميل غير صالح !",
+    "error_messages_email_taken": "الإيميل مستخدم بالفعل !",
+
+    "error_messages_first_name_required": "الإسم الأول مطلوب !",
+    "error_messages_first_name_minlength": "الإسم الأول يجب ان يحتوي 4 احرف على الأقل !",
+
+    "error_messages_last_name_required": "الإسم الأخير مطلوب !",
+    "error_messages_last_name_minlength": "الإسم الأخير يجب ان يحتوي 4 احرف على الأقل !"
+  },
+  "buttons": {
+    "save": "حفظ",
+    "profile": "الملف الشخصي",
+    "home": "الصفحة الرئيسية",
+    "contact_us": "إتصل بنا",
+    "logout": "تسجيل خروج",
+    "language": "اللغة"
+  },
+  "user_profile": {
+    "field_email": "البريد الإلكتروني",
+    "field_first_name": "الاسم الاول",
+    "field_last_name": "الكنية",
+    "field_username": "اسم المستخدم"
+  }
+}

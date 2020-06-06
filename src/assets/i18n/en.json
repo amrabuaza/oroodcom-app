@@ -1,0 +1,37 @@
+{
+  "home": {
+    "name": "Title",
+    "description": "product llll !",
+    "categories": "Categories",
+    "all": "All"
+  },
+  "user": {
+    "error_messages_username_required": "Username is required !",
+    "error_messages_username_minlength": "Username should contain at least 4 characters !",
+    "error_messages_username_taken": "This username has already been taken.",
+
+    "error_messages_email_required": "Email is required !",
+    "error_messages_email_pattern": "Email is not a valid email address. !",
+    "error_messages_email_taken": "This email has already been taken.",
+
+    "error_messages_first_name_required": "First Name is required !",
+    "error_messages_first_name_minlength": "First Name should contain at least 3 characters !",
+
+    "error_messages_last_name_required": "Last Name is required !",
+    "error_messages_last_name_minlength": "Last Name should contain at least 3 characters !"
+  },
+  "buttons": {
+    "save": "Save",
+    "profile": "Profile",
+    "home": "Home",
+    "contact_us": "Contact Us",
+    "logout": "Logout",
+    "language": "Language"
+  },
+  "user_profile": {
+    "field_email": "Email",
+    "field_first_name": "First Name",
+    "field_last_name": "Last Name",
+    "field_username": "Username"
+  }
+}

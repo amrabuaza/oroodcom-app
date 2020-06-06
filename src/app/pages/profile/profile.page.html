@@ -1,12 +1,12 @@
 <ion-header no-border>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="onClick()">
     <ion-fab-button>
       <ion-icon name="create"></ion-icon>
     </ion-fab-button>
@@ -18,12 +18,12 @@
           <ion-card-header>
             <div class="card-title">
               <ion-avatar>
-                <img
+                <!-- <img
                   src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
-                />
+                /> -->
               </ion-avatar>
               <div>
-                <ion-card-title>User Name</ion-card-title>
+                <ion-card-title>{{username}}</ion-card-title>
               </div>
             </div>
           </ion-card-header>
@@ -31,14 +31,21 @@
           <ion-card-content>
             <ion-list lines="none">
               <ion-item
-                >Email :<span style="font-size: 0.8rem; padding-left: 0.6rem;"
-                  >UserMail@example.com</span
+                >{{'user_profile.field_email' | translate:params}} :<span
+                  style="font-size: 0.8rem; padding-left: 0.6rem;"
+                  >{{email}}</span
                 ></ion-item
               >
               <ion-item
-                >Phone Number :
+                >{{'user_profile.field_first_name' | translate:params}} :
                 <span style="font-size: 0.8rem; padding-left: 0.6rem;"
-                  >+96278965845</span
+                  >{{first_name}}</span
+                ></ion-item
+              >
+              <ion-item
+                >{{'user_profile.field_last_name' | translate:params}} :
+                <span style="font-size: 0.8rem; padding-left: 0.6rem;"
+                  >{{last_name}}</span
                 ></ion-item
               >
             </ion-list>

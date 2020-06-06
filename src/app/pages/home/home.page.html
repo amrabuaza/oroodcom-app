@@ -1,29 +1,44 @@
-<!-- <ion-menu side="start" menuId="first" contentId="main">
+<ion-menu side="start" menuId="first" contentId="main">
   <ion-header>
     <ion-toolbar color="white">
       <ion-title
         ><ion-avatar>
-          <img
+          <!-- <img
             src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
-          />
+          /> -->
         </ion-avatar>
         <p style="font-size: 1rem; color: #00bcd4; text-align: center;">
-          User Name
+          {{username}}
         </p>
       </ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list style="padding: 2rem;">
-      <ion-item [routerLink]="['/home']">Home</ion-item>
-      <ion-item [routerLink]="['/profile']">Profile</ion-item>
-      <ion-item>Contact Us</ion-item>
-      <ion-item>	<ion-select [(ngModel)]="language" (ionChange)="changeLanguage()">
-        <ion-option value="en" selected="true">English</ion-option>
-        <ion-option value="ar">Arabic</ion-option>
-      
-     </ion-select></ion-item>
-      <ion-item lines="none" [routerLink]="['/login']">Logout</ion-item>
+      <ion-item [routerLink]="['/home']"
+        >{{ 'buttons.home' | translate:params }}</ion-item
+      >
+      <ion-item [routerLink]="['/profile']"
+        >{{ 'buttons.profile' | translate:params }}</ion-item
+      >
+      <ion-item>{{ 'buttons.contact_us' | translate:params }}</ion-item>
+      <ion-item>
+        <ion-label>{{ 'buttons.language' | translate:params }}</ion-label>
+        <ion-select
+          (ionChange)="languageChanged()"
+          [(ngModel)]="language"
+          value="Language"
+          interface="action-sheet"
+        >
+          <ion-select-option value="en" selected>English</ion-select-option>
+          <ion-select-option value="ar">العربيه</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item lines="none"
+        ><ion-button (click)="handleLogout()">
+          {{ 'buttons.logout' | translate:params }}
+        </ion-button>
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -60,95 +75,56 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content overflow-scroll="false">
+  <div class="filter-container">
+    <ion-item>
+      <label>{{ 'home.categories' | translate:params }}</label>
+      <ion-select
+        interface="popover"
+        name="cat"
+        (ionChange)="onCategoryChange($event.target.value)"
+      >
+        <ion-select-option value="-1" selected
+          >{{ 'home.all' | translate:params }}</ion-select-option
+        >
+        <ion-select-option
+          *ngFor="let category of categoires"
+          value="{{category.id}}"
+        >
+          {{category.name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
   <ion-grid>
-    <ion-row>
-			<ion-col>
-			
-				<div class="filter-container">
-					<ion-select value="recent" interface="popover">
-						<ion-select-option value="recent">Most recent</ion-select-option>
-						<ion-select-option value="az">A-Z</ion-select-option>
-						<ion-select-option value="za">Z-A</ion-select-option>
-						<ion-select-option no-border lines="none" value="featured">Featured</ion-select-option>
-					</ion-select>
-					<ion-buttons class="icons">
-						<ion-button>
-							<ion-icon slot="icon-only" name="apps"></ion-icon>
-						</ion-button>
-						<ion-button>
-							<ion-icon slot="icon-only" name="menu"></ion-icon>
-						</ion-button>
-					</ion-buttons>
-				</div>
-				<ion-card >
-          <ion-card-header>
-          <div class="card-title">
-            <ion-avatar>
-              <img src="assets/6.png" />
-            </ion-avatar>
-            <div>
-              <ion-card-title>pizza</ion-card-title>
-              <ion-card-subtitle class="star">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star-outline"></ion-icon>
-              
-              </ion-card-subtitle>
-            </div>
-          </div>
-          <div>
-            
-            <ion-item  color="primary" (click)="showProfile()">Info</ion-item>
-          </div>
-          </ion-card-header>
-              
-          <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile, and
-          climb a mountain or spend...
-          </ion-card-content>
+    <ion-list>
+      <ion-card *ngFor="let item of items">
+        <img
+          style="max-width: 300px; max-height: 200px;"
+          src="{{item.picture}}"
+        />
+        <ion-card-content>
+          <ion-card-title style="text-align: center;" class="text-center">
+            {{item.name}}
+          </ion-card-title>
+          <p style="text-align: center;" class="text-center">
+            {{item.description}}
+          </p>
+        </ion-card-content>
+        <ion-row class="cardfooter">
+          <ion-col size="12">
+            <span
+              style="
+                color: rgb(102, 102, 102);
+                text-decoration-line: line-through;
+                padding-right: 1rem;
+              "
+              >{{item.old_price}} JD</span
+            ><span style="color: tomato;">{{item.price}} JD</span>
+          </ion-col>
+        </ion-row>
       </ion-card>
-      
-			</ion-col>
-		</ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="12" *ngFor="let item of cardInf">
-              <ion-card>
-                <img src="assets/6.png" />
-                <ion-card-content>
-                  <ion-card-title
-                    style="text-align: center;"
-                    class="text-center"
-                  >
-                  "{{ title }}"
-                  </ion-card-title>
-                  <p style="text-align: center;" class="text-center">
-                    "{{ description }}"
-                  </p>
-                </ion-card-content>
-                <ion-row class="cardfooter">
-                  <ion-col size="12">
-                    <p style="color: tomato;">199 JD</p>
-                  </ion-col>
-               
-                </ion-row>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-col>
-    </ion-row>
+    </ion-list>
   </ion-grid>
 </ion-content>
-
-<ion-router-outlet id="main"></ion-router-outlet> -->
-<p *ngFor="let item of items">
-  hi
-
-  <ion-label>{{item.name}}</ion-label>
-</p>
+<ion-router-outlet id="main"></ion-router-outlet>

@@ -60,7 +60,7 @@ export class RegisterPage implements OnInit {
       },
       {
         type: "minlength",
-        message: "Username must be at lest 4 char !",
+        message: "Username should contain at least 4 characters !",
       },
       {
         type: "taken",
@@ -74,7 +74,7 @@ export class RegisterPage implements OnInit {
       },
       {
         type: "minlength",
-        message: "Password must be at lest 6 char !",
+        message: "Password should contain at least 6 characters !",
       },
     ],
     email: [
@@ -84,7 +84,7 @@ export class RegisterPage implements OnInit {
       },
       {
         type: "pattern",
-        message: "Please insert valid Email !",
+        message: "Email is not a valid email address. !",
       },
       {
         type: "taken",
@@ -99,6 +99,7 @@ export class RegisterPage implements OnInit {
     this.registerService.signup(this.registerForm.value).subscribe(
       (res) => {
         localStorage.setItem("access-token", res["access_token"]);
+        localStorage.setItem("username", res["username"]);
         this.router.navigateByUrl("/home");
       },
       (error: IErrorResponse) => {

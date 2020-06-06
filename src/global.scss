@@ -143,3 +143,12 @@ ion-avatar {
     margin-right: 1em;
   }
 }
+ion-select div .select-icon {
+  display: none !important;
+}
+.select-icon div {
+  display: none !important;
+}
+.select-icon-inner {
+  display: none !important;
+}

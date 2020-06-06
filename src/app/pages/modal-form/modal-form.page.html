@@ -1,33 +1,86 @@
+<ion-content padding>
+  <div class="login-box">
+    <form [formGroup]="profileForm" (ngSubmit)="save()">
+      <ion-row>
+        <ion-col style="margin-left: auto; margin-right: auto;" size="12">
+          <ion-item class="ion-no-padding">
+            <ion-label style="font-size: 14px;" position="floating"
+              >{{'user_profile.field_username' | translate:params}}</ion-label
+            >
+            <ion-input formControlName="username" inputmode="text"></ion-input>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.username">
+            <ng-container
+              *ngIf="username.hasError(error.type) && (username.diry || username.touched)"
+            >
+              <small class="error-message"
+                >{{error.message| translate:params}}</small
+              >
+            </ng-container>
+          </div>
+          <ion-item class="ion-no-padding">
+            <ion-label style="font-size: 14px;" position="floating"
+              >{{'user_profile.field_first_name' | translate:params}}</ion-label
+            >
+            <ion-input
+              formControlName="first_name"
+              inputmode="text"
+            ></ion-input>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.first_name">
+            <ng-container
+              *ngIf="first_name.hasError(error.type) && (first_name.diry || first_name.touched)"
+            >
+              <small class="error-message"
+                >{{error.message| translate:params}}</small
+              >
+            </ng-container>
+          </div>
+          <ion-item class="ion-no-padding">
+            <ion-label style="font-size: 14px;" position="floating"
+              >{{'user_profile.field_last_name' | translate:params}}</ion-label
+            >
+            <ion-input formControlName="last_name" inputmode="text"></ion-input>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.last_name">
+            <ng-container
+              *ngIf="last_name.hasError(error.type) && (last_name.diry || last_name.touched)"
+            >
+              <small class="error-message"
+                >{{error.message| translate:params}}</small
+              >
+            </ng-container>
+          </div>
 
-<ion-content>
-	<ion-grid class="column-evenly">
-		<ion-row>
-			<ion-col style="margin-bottom: 1rem">
-				<ion-item class="ion-no-padding">
-					<ion-label position="stacked">Describe your problem</ion-label>
-					<ion-textarea></ion-textarea>
-				</ion-item>
-				<ion-item class="ion-no-padding">
-					<ion-label position="stacked">Date & Time</ion-label>
-					<ion-datetime displayFormat="D MMM YYYY H:mm"></ion-datetime>
-				</ion-item>
-				<div class="agree-terms">
-						<ion-checkbox slot="start" checked="true"> </ion-checkbox>
-						
-							<span>I want to pay once the repair is finished</span>
-					
-					</div>
-			</ion-col>
-			
-		</ion-row>
-		<ion-row>
-			<ion-col style="margin-top: 1rem">
-				<ion-button class="button-size center-button" expand="block">
-					Complete appointment
-				</ion-button>
-			
-			</ion-col>
-		</ion-row>
-	</ion-grid>
+          <ion-item class="ion-no-padding">
+            <ion-label style="font-size: 14px;" position="floating"
+              >{{'user_profile.field_email' | translate:params}}</ion-label
+            >
+            <ion-input formControlName="email" inputmode="email"></ion-input>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.email">
+            <ng-container
+              *ngIf="email.hasError(error.type) && (email.diry || email.touched)"
+            >
+              <small class="error-message"
+                >{{error.message| translate:params}}</small
+              >
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button
+            size="large"
+            type="submit"
+            [disabled]="!profileForm.valid"
+            expand="block"
+          >
+            {{'buttons.save' | translate:params}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
 </ion-content>
-    

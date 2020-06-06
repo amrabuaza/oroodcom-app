@@ -1,61 +1,57 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
+const accessToken = localStorage.getItem("access-token");
+const isLogined =
+  accessToken !== undefined && accessToken !== null ? true : false;
+const loginRoute = import("./pages/login/login.module").then(
+  (m) => m.LoginPageModule
+);
+const homeRoute = import("./pages/home/home.module").then(
+  (m) => m.HomePageModule
+);
 
 const routes: Routes = [
   {
     path: "",
     loadChildren: () =>
-      import("./pages/onboarding/onboarding.module").then(
-        (m) => m.OnboardingPageModule
-      ),
+      isLogined
+        ? homeRoute
+        : import("./pages/onboarding/onboarding.module").then(
+            (m) => m.OnboardingPageModule
+          ),
   },
   {
     path: "login",
-    loadChildren: () =>
-      import("./pages/login/login.module").then((m) => m.LoginPageModule),
+    loadChildren: () => loginRoute,
   },
   {
     path: "register",
     loadChildren: () =>
-      import("./pages/register/register.module").then(
-        (m) => m.RegisterPageModule
-      ),
+      isLogined
+        ? homeRoute
+        : import("./pages/register/register.module").then(
+            (m) => m.RegisterPageModule
+          ),
   },
   {
     path: "profile",
     loadChildren: () =>
-      import("./pages/profile/profile.module").then((m) => m.ProfilePageModule),
-  },
-  {
-    path: "category",
-    loadChildren: () =>
-      import("./pages/category/category.module").then(
-        (m) => m.CategoryPageModule
-      ),
-  },
-  {
-    path: "my-appointments",
-    loadChildren: () =>
-      import("./pages/my-appointments/my-appointments.module").then(
-        (m) => m.MyAppointmentsPageModule
-      ),
-  },
-  {
-    path: "settings",
-    loadChildren: () =>
-      import("./pages/settings/settings.module").then(
-        (m) => m.SettingsPageModule
-      ),
+      isLogined
+        ? import("./pages/profile/profile.module").then(
+            (m) => m.ProfilePageModule
+          )
+        : loginRoute,
   },
   {
     path: "home",
-    loadChildren: () =>
-      import("./pages/home/home.module").then((m) => m.HomePageModule),
+    loadChildren: () => (isLogined ? homeRoute : loginRoute),
   },
   {
     path: "shop",
     loadChildren: () =>
-      import("./pages/shop/shop.module").then((m) => m.ShopPageModule),
+      isLogined
+        ? import("./pages/shop/shop.module").then((m) => m.ShopPageModule)
+        : loginRoute,
   },
 ];
 @NgModule({
