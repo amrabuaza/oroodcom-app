@@ -8,6 +8,7 @@ import {
 } from "@angular/forms";
 import { RegisterService } from "src/app/services/register.service";
 import { IErrorMessage, IErrorResponse } from "src/app/services/types";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-register",
@@ -20,7 +21,8 @@ export class RegisterPage implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private registerService: RegisterService
+    private registerService: RegisterService,
+    private authSerivce: AuthService
   ) {
     this.registerForm = new FormGroup({
       username: new FormControl("", [
@@ -100,6 +102,7 @@ export class RegisterPage implements OnInit {
       (res) => {
         localStorage.setItem("access-token", res["access_token"]);
         localStorage.setItem("username", res["username"]);
+        this.authSerivce.login(res["access_token"]);
         this.router.navigateByUrl("/home");
       },
       (error: IErrorResponse) => {

@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
+import { AuthGuardService } from "./services/auth-guard.service";
 const accessToken = localStorage.getItem("access-token");
 const isLogined =
   accessToken !== undefined && accessToken !== null ? true : false;
@@ -22,36 +23,33 @@ const routes: Routes = [
   },
   {
     path: "login",
+
     loadChildren: () => loginRoute,
   },
   {
     path: "register",
+
     loadChildren: () =>
-      isLogined
-        ? homeRoute
-        : import("./pages/register/register.module").then(
-            (m) => m.RegisterPageModule
-          ),
+      import("./pages/register/register.module").then(
+        (m) => m.RegisterPageModule
+      ),
   },
   {
     path: "profile",
+    canActivate: [AuthGuardService],
     loadChildren: () =>
-      isLogined
-        ? import("./pages/profile/profile.module").then(
-            (m) => m.ProfilePageModule
-          )
-        : loginRoute,
+      import("./pages/profile/profile.module").then((m) => m.ProfilePageModule),
   },
   {
     path: "home",
-    loadChildren: () => (isLogined ? homeRoute : loginRoute),
+    canActivate: [AuthGuardService],
+    loadChildren: () => homeRoute,
   },
   {
     path: "shop",
+    canActivate: [AuthGuardService],
     loadChildren: () =>
-      isLogined
-        ? import("./pages/shop/shop.module").then((m) => m.ShopPageModule)
-        : loginRoute,
+      import("./pages/shop/shop.module").then((m) => m.ShopPageModule),
   },
 ];
 @NgModule({

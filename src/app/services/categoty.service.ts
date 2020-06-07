@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 })
 export class CategotyService {
   constructor(private httpclient: HttpClient) {}
+
   getCategories() {
     const accessToken = "Bearer " + localStorage.getItem("access-token");
     const lang = localStorage.getItem("content-language");

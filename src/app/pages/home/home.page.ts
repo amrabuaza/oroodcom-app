@@ -11,6 +11,7 @@ import {
 import { GetItemsService } from "src/app/services/get-items.service";
 import { TranslateLaService } from "src/app/services/translate-la.service";
 import { CategotyService } from "src/app/services/categoty.service";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-home",
@@ -32,7 +33,8 @@ export class HomePage implements OnInit {
     private itemService: GetItemsService,
     private categoryService: CategotyService,
     private translateLaService: TranslateLaService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private authSerivce: AuthService
   ) {}
   public username: string;
   languageChanged() {
@@ -43,7 +45,6 @@ export class HomePage implements OnInit {
 
   showProfile() {
     this.navCtrl.navigateForward("/shop");
-    // this.router.navigateByUrl("/shop");
   }
   openFirst() {
     this.menu.enable(true, "first");
@@ -58,7 +59,8 @@ export class HomePage implements OnInit {
       lang = localStorage.getItem(this.ContentLanguageKey);
     }
     this.language = lang;
-    this.translateLaService.setLanguage(lang);
+    //this.languageChanged();
+
     this.itemService.getLatestItem().subscribe((response: IItemsResponse) => {
       this.items = response.items;
     });
@@ -84,8 +86,9 @@ export class HomePage implements OnInit {
   }
 
   handleLogout() {
-    localStorage.removeItem("content-language");
     localStorage.removeItem("access-token");
+    localStorage.removeItem(this.ContentLanguageKey);
+    this.authSerivce.logout();
     window.location.reload();
   }
 }

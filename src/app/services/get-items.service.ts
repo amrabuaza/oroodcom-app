@@ -9,7 +9,11 @@ export class GetItemsService {
 
   getLatestItem() {
     const accessToken = "Bearer " + localStorage.getItem("access-token");
-    const lang = localStorage.getItem("content-language");
+    var lang = localStorage.getItem("content-language");
+    if (lang === undefined || lang === null) {
+      localStorage.setItem("content-language", "en");
+      lang = "en";
+    }
     const headers = new HttpHeaders({
       "Content-Type": "application/json",
       "Accept-Language": lang,
