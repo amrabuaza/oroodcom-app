@@ -1,3 +1,44 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="white">
+        <ion-title
+          ><ion-avatar> </ion-avatar>
+          <p style="font-size: 1rem; color: #00bcd4; text-align: center;">
+            {{ username }}
+          </p>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list style="padding: 2rem;">
+        <ion-item [routerLink]="['/home']">{{
+          "buttons.home" | translate: params
+        }}</ion-item>
+        <ion-item [routerLink]="['/profile']">{{
+          "buttons.profile" | translate: params
+        }}</ion-item>
+        <ion-item>{{ "buttons.contact_us" | translate: params }}</ion-item>
+        <ion-item>
+          <ion-label>{{ "buttons.language" | translate: params }}</ion-label>
+          <ion-select
+            (ionChange)="languageChanged()"
+            [(ngModel)]="language"
+            value="Language"
+            interface="action-sheet"
+          >
+            <ion-select-option value="en" selected>English</ion-select-option>
+            <ion-select-option value="ar">العربيه</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item lines="none"
+          ><ion-button (click)="handleLogout()">
+            {{ "buttons.logout" | translate: params }}
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

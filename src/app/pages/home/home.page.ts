@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { MenuController, NavController } from "@ionic/angular";
+import { MenuController, NavController, ModalController } from "@ionic/angular";
 import { TranslateService } from "@ngx-translate/core";
 import {
   IItemsResponse,
@@ -34,7 +34,8 @@ export class HomePage implements OnInit {
     private categoryService: CategotyService,
     private translateLaService: TranslateLaService,
     private navCtrl: NavController,
-    private authSerivce: AuthService
+    private authSerivce: AuthService,
+    private modalCtrl: ModalController
   ) {}
   public username: string;
   languageChanged() {

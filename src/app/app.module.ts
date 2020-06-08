@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouteReuseStrategy } from "@angular/router";
 import { IonicModule, IonicRouteStrategy } from "@ionic/angular";
@@ -9,9 +9,11 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { TranslateLaService } from "./services/translate-la.service";
 import { IonicStorageModule } from "@ionic/storage";
+import { ComponentsModule } from "./components/components.module";
+import { CommonModule } from "@angular/common";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -21,6 +23,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     HttpClientModule,
     BrowserModule,
+    FormsModule,
+    IonicModule,
+    ComponentsModule,
+    CommonModule,
     ReactiveFormsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
@@ -40,5 +46,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule {}
