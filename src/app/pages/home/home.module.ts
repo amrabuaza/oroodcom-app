@@ -6,8 +6,9 @@ import { Routes, RouterModule } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 
 import { HomePage } from "./home.page";
-import { ComponentsModule } from "../../components/components.module";
 import { TranslateModule } from "@ngx-translate/core";
+import { SearchFormPageModule } from "../search-form/search-form.module";
+import { SearchFormPage } from "../search-form/search-form.page";
 
 const routes: Routes = [
   {
@@ -17,12 +18,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents: [SearchFormPage],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ComponentsModule,
+    SearchFormPageModule,
     TranslateModule,
+
     RouterModule.forChild(routes),
   ],
   declarations: [HomePage],

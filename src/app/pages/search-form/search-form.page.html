@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'search.title' | translate:params }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>{{ 'search.fields_item_name' | translate:params }}</ion-label>
+    <ionic-selectable
+      [(ngModel)]="item_name"
+      [items]="names"
+      itemValueField="name"
+      itemTextField="name"
+      [canSearch]="true"
+      (onChange)="nameChange($event)"
+    >
+    </ionic-selectable>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label>{{ 'search.fields_shop_rate' | translate:params }}</ion-label>
+    <ionic4-star-rating
+      #rating
+      activeIcon="ios-star"
+      defaultIcon="ios-star-outline"
+      activeColor="#e0b500"
+      defaultColor="#f4f4f4"
+      readonly="false"
+      rating="5"
+      fontSize="32px"
+      (ratingChanged)="logRatingChange($event)"
+    >
+    </ionic4-star-rating>
+  </ion-item>
+  <ion-item lines="none" *ngFor="let entry of form">
+    <ion-label>{{entry.val | translate:params}}</ion-label>
+    <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+  </ion-item>
+  <ion-button (click)="submit()" [disabled]="item_name === null"
+    >{{'buttons.filter' | translate:params}}</ion-button
+  >
+</ion-content>

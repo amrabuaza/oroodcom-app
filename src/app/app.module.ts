@@ -14,6 +14,9 @@ import { TranslateLaService } from "./services/translate-la.service";
 import { IonicStorageModule } from "@ionic/storage";
 import { ComponentsModule } from "./components/components.module";
 import { CommonModule } from "@angular/common";
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from "@ionic-native/native-geocoder/ngx";
+import { IonicSelectableModule } from "ionic-selectable";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -28,6 +31,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ComponentsModule,
     CommonModule,
     ReactiveFormsModule,
+    IonicSelectableModule,
+
     IonicModule.forRoot(),
     AppRoutingModule,
     IonicStorageModule.forRoot(),
@@ -43,6 +48,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     StatusBar,
     TranslateLaService,
     SplashScreen,
+    Geolocation,
+    NativeGeocoder,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],

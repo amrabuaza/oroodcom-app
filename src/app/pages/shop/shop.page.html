@@ -1,30 +1,87 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>shop</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <ion-button (click)="loadMap()" shape="round" color="dark">
+      <ion-icon slot="start" name="locate"></ion-icon>
+      Where I Am
+    </ion-button>
+    <ion-title slot="end">Google Map</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card style="height: 258px;">
-    <img style="max-width: 300px; max-height: 200px;" />
+<ion-content [fullscreen]="true">
+  <!-- <ion-card>
+    <img style="max-height: 200px;" src="{{shop.picture_url}}" />
     <ion-card-content>
       <ion-card-title style="text-align: center;" class="text-center">
-        "item"
+        {{shop.name}}
       </ion-card-title>
       <p style="text-align: center;" class="text-center">
-        "item"
+        {{shop.description}}
       </p>
     </ion-card-content>
-  </ion-card>
+    <ion-row style="width: 100%;" class="cardfooter">
+      <ion-col style="text-align: center;" size="6">
+        <span
+          style="
+            color: rgb(102, 102, 102);
+            padding-right: 0.7rem;
+            font-size: 9px;
+          "
+        >
+          From: {{shop.open_at}}</span
+        ><span style="color: rgb(102, 102, 102); font-size: 9px;"
+          >To: {{shop.close_at}}</span
+        >
+      </ion-col>
+
+      <ion-col style="text-align: center; padding: 0;" size="6">
+        <ion-button
+          style="
+            font-size: 8pt !important;
+            height: 24px;
+            --background: #f39e1b;
+            --box-shadow: none;
+          "
+        >
+          <ion-icon style="margin-right: 10px;" name="call"></ion-icon>
+          {{shop.phone_number}}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card> -->
   <ion-card style="height: 158px;">
-    <img style="max-width: 300px; max-height: 200px;" />
-    <ion-card-content>
-      <ion-card-title style="text-align: center;" class="text-center">
-        "item"
-      </ion-card-title>
-      <p style="text-align: center;" class="text-center">
-        "item"
-      </p>
-    </ion-card-content>
+    <div class="map-wrapper">
+      <div id="map_center">
+        <img src="assets/marker.png" />
+      </div>
+      <div #map id="map"></div>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <b>Lattitude</b>
+        </ion-col>
+        <ion-col>
+          {{shop.latitude}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3">
+          <b>Longitude</b>
+        </ion-col>
+        <ion-col>
+          {{shop.longitude}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3">
+          <b>Address</b>
+        </ion-col>
+        <ion-col>
+          {{address}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card>
 </ion-content>

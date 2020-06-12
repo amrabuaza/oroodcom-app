@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
+import { IonicSelectableModule } from "ionic-selectable";
 import { IonicModule } from "@ionic/angular";
-
-import { ModalFormPage } from "./modal-form.page";
+import { StarRatingModule } from "ionic4-star-rating";
+import { SearchFormPage } from "./search-form.page";
 import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
@@ -13,8 +13,10 @@ import { TranslateModule } from "@ngx-translate/core";
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
+    IonicSelectableModule,
     TranslateModule,
+    StarRatingModule,
   ],
-  declarations: [ModalFormPage],
+  declarations: [SearchFormPage],
 })
-export class ModalFormPageModule {}
+export class SearchFormPageModule {}

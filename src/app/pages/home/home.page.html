@@ -21,7 +21,9 @@
           </div>
           <div class="right-side">
             <div class="inbox-icon">
-              <ion-button style="--background: transparent; --box-shadow: none;"
+              <ion-button
+                (click)="presentModal()"
+                style="--background: transparent; --box-shadow: none;"
                 ><ion-icon
                   style="color: #3e3e3e; font-size: 2rem;"
                   name="search"
@@ -67,26 +69,47 @@
           <ion-card-title style="text-align: center;" class="text-center">
             {{item.name}}
           </ion-card-title>
-          <p style="text-align: center;" class="text-center">
+          <p
+            style="text-align: center; margin-top: 5px; font-size: 11px;"
+            class="text-center"
+          >
             {{item.description}}
           </p>
         </ion-card-content>
         <ion-row style="width: 100%;" class="cardfooter">
           <ion-col style="text-align: center;" size="6">
             <span
+              class="testprice"
               style="
                 color: rgb(102, 102, 102);
                 text-decoration-line: line-through;
                 padding-right: 1rem;
+                font-size: 12px;
               "
               >{{item.old_price}} JD</span
-            ><span style="color: tomato;">{{item.price}} JD</span>
+            ><span style="color: tomato; font-size: 14px;"
+              >{{item.price}} JD</span
+            >
           </ion-col>
 
-          <ion-col style="text-align: center;" size="6" (click)="showProfile()">
-            <ion-button>
+          <ion-col
+            style="text-align: center; padding: 0;"
+            size="6"
+            (click)="showProfile(item.shop)"
+          >
+            <ion-button
+              style="
+                font-size: 8pt !important;
+                height: 24px;
+                --background: #f39e1b;
+                --box-shadow: none;
+              "
+            >
+              <ion-icon
+                style="margin-right: 10px;"
+                name="information-circle"
+              ></ion-icon>
               {{item.shop.name}}
-              <ion-icon name="information-circle"></ion-icon>
             </ion-button>
           </ion-col>
         </ion-row>

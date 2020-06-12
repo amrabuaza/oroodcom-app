@@ -15,6 +15,8 @@ import { TranslateLaService } from "./services/translate-la.service";
 export class AppComponent {
   private ContentLanguageKey = "content-language";
   public language: string;
+  public menuSide = "";
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -26,10 +28,27 @@ export class AppComponent {
     private router: Router
   ) {
     this.initializeApp();
+    var lang =
+      localStorage.getItem("content-language") !== null &&
+      localStorage.getItem("content-language") !== undefined
+        ? localStorage.getItem("content-language")
+        : "en";
+    if (lang === "en") {
+      this.menuSide = "start";
+    } else {
+      this.menuSide = "end";
+    }
+    this.language = lang;
   }
+
   languageChanged() {
     localStorage.setItem(this.ContentLanguageKey, this.language);
     this.translateLaService.setLanguage(this.language);
+    if (this.language === "ar") {
+      document.documentElement.dir = "rtl";
+    } else {
+      document.documentElement.dir = "ltr";
+    }
     location.reload();
   }
   handleLogout() {

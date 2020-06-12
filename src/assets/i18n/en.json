@@ -26,12 +26,20 @@
     "home": "Home",
     "contact_us": "Contact Us",
     "logout": "Logout",
-    "language": "Language"
+    "language": "Language",
+    "filter": "Filter"
   },
   "user_profile": {
     "field_email": "Email",
     "field_first_name": "First Name",
     "field_last_name": "Last Name",
     "field_username": "Username"
+  },
+  "search": {
+    "title": "Search for items",
+    "fields_item_name": "Item Name",
+    "fields_shop_rate": "Shop Rate",
+    "fields_nearest_shops": "Nearest Shops",
+    "fiedls_lowest_price": "Lowest Price"
   }
 }

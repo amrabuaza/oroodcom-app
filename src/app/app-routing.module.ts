@@ -51,6 +51,9 @@ const routes: Routes = [
     loadChildren: () =>
       import("./pages/shop/shop.module").then((m) => m.ShopPageModule),
   },
+  // { path: 'search-form', loadChildren: './search-form/search-form.module#SearchFormPageModule' },
+
+  // { path: 'modal', loadChildren: './modal/modal.module#ModalPageModule' },
 ];
 @NgModule({
   imports: [

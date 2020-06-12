@@ -26,12 +26,20 @@
     "home": "الصفحة الرئيسية",
     "contact_us": "إتصل بنا",
     "logout": "تسجيل خروج",
-    "language": "اللغة"
+    "language": "اللغة",
+    "filter": "تصفية"
   },
   "user_profile": {
     "field_email": "البريد الإلكتروني",
     "field_first_name": "الاسم الاول",
     "field_last_name": "الكنية",
     "field_username": "اسم المستخدم"
+  },
+  "search": {
+    "title": "البحث عن العناصر",
+    "fields_item_name": "اسم العنصر",
+    "fields_shop_rate": "تقييم المتجر",
+    "fields_nearest_shops": "أقرب المحلات",
+    "fiedls_lowest_price": "أقرب المحلات"
   }
 }

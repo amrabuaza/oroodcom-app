@@ -26,4 +26,41 @@ export class GetItemsService {
       }
     );
   }
+
+  getITemsNames() {
+    const accessToken = "Bearer " + localStorage.getItem("access-token");
+    var lang = localStorage.getItem("content-language");
+    if (lang === undefined || lang === null) {
+      localStorage.setItem("content-language", "en");
+      lang = "en";
+    }
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Accept-Language": lang,
+      Authorization: accessToken,
+    });
+    return this.httpclient.get(
+      "http://admin.oroodcom.com/private-api/item/get-items-name",
+      {
+        headers: headers,
+      }
+    );
+  }
+
+  filterITems(data) {
+    const accessToken = "Bearer " + localStorage.getItem("access-token");
+    var lang = localStorage.getItem("content-language");
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Accept-Language": lang,
+      Authorization: accessToken,
+    });
+    return this.httpclient.post(
+      "http://admin.oroodcom.com/private-api/item/filter",
+      data,
+      {
+        headers: headers,
+      }
+    );
+  }
 }
