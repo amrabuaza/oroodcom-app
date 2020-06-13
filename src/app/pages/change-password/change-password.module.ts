@@ -5,13 +5,14 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { IonicModule } from "@ionic/angular";
 
-import { LoginPage } from "./login.page";
+import { ChangePasswordPage } from "./change-password.page";
 import { TranslateModule } from "@ngx-translate/core";
+import { ModalFormPageModule } from "../modal-form/modal-form.module";
 
 const routes: Routes = [
   {
     path: "",
-    component: LoginPage,
+    component: ChangePasswordPage,
   },
 ];
 
@@ -20,10 +21,11 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ModalFormPageModule,
     TranslateModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [LoginPage],
+  declarations: [ChangePasswordPage],
 })
-export class LoginPageModule {}
+export class ChangePasswordPageModule {}

@@ -77,19 +77,9 @@
           </p>
         </ion-card-content>
         <ion-row style="width: 100%;" class="cardfooter">
-          <ion-col style="text-align: center;" size="6">
-            <span
-              class="testprice"
-              style="
-                color: rgb(102, 102, 102);
-                text-decoration-line: line-through;
-                padding-right: 1rem;
-                font-size: 12px;
-              "
-              >{{item.old_price}} JD</span
-            ><span style="color: tomato; font-size: 14px;"
-              >{{item.price}} JD</span
-            >
+          <ion-col class="priceDiv" style="text-align: center;" size="6">
+            <span class="testprice oldPrice">{{item.old_price}} JD</span
+            ><span class="currentPrice">{{item.price}} JD</span>
           </ion-col>
 
           <ion-col
@@ -105,10 +95,7 @@
                 --box-shadow: none;
               "
             >
-              <ion-icon
-                style="margin-right: 10px;"
-                name="information-circle"
-              ></ion-icon>
+              <ion-icon class="btn-icon" name="information-circle"></ion-icon>
               {{item.shop.name}}
             </ion-button>
           </ion-col>

@@ -18,7 +18,9 @@
         <ion-item [routerLink]="['/profile']">{{
           "buttons.profile" | translate: params
         }}</ion-item>
-        <ion-item>{{ "buttons.contact_us" | translate: params }}</ion-item>
+        <ion-item [routerLink]="['/change-password']">{{
+          "buttons.Change_Password" | translate: params
+        }}</ion-item>
         <ion-item>
           <ion-label>{{ "buttons.language" | translate: params }}</ion-label>
           <ion-select

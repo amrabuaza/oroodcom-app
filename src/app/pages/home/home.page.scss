@@ -215,8 +215,24 @@ ion-select div .select-text {
   display: none !important;
 }
 
-[dir="rtl"] {
-  span {
-    color: green !important;
-  }
+.oldPrice {
+  color: rgb(102, 102, 102);
+  text-decoration-line: line-through;
+  padding-left: 1rem;
+  padding-right: 5px !important;
+  font-size: 12px;
+}
+
+.currentPrice {
+  color: tomato;
+  font-size: 14px;
+}
+
+.priceDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-icon {
+  margin-right: 10px;
 }

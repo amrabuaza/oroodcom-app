@@ -51,6 +51,20 @@ const routes: Routes = [
     loadChildren: () =>
       import("./pages/shop/shop.module").then((m) => m.ShopPageModule),
   },
+  {
+    path: "change-password",
+    canActivate: [AuthGuardService],
+    loadChildren: () =>
+      import("./pages/change-password/change-password.module").then(
+        (m) => m.ChangePasswordPageModule
+      ),
+  },
+
+  // {
+  //   path: "password-form",
+  //   loadChildren:
+  //     "./pages/password-form/password-form.module#PasswordFormPageModule",
+  // },
   // { path: 'search-form', loadChildren: './search-form/search-form.module#SearchFormPageModule' },
 
   // { path: 'modal', loadChildren: './modal/modal.module#ModalPageModule' },

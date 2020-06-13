@@ -20,7 +20,7 @@ export class GetItemsService {
       Authorization: accessToken,
     });
     return this.httpclient.get(
-      "http://admin.oroodcom.com/private-api/item/get-latest-items",
+      "https://admin.oroodcom.com/private-api/item/get-latest-items",
       {
         headers: headers,
       }
@@ -40,7 +40,7 @@ export class GetItemsService {
       Authorization: accessToken,
     });
     return this.httpclient.get(
-      "http://admin.oroodcom.com/private-api/item/get-items-name",
+      "https://admin.oroodcom.com/private-api/item/get-items-name",
       {
         headers: headers,
       }
@@ -56,7 +56,7 @@ export class GetItemsService {
       Authorization: accessToken,
     });
     return this.httpclient.post(
-      "http://admin.oroodcom.com/private-api/item/filter",
+      "https://admin.oroodcom.com/private-api/item/filter",
       data,
       {
         headers: headers,

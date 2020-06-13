@@ -17,7 +17,7 @@ export class CategotyService {
       Authorization: accessToken,
     });
     return this.httpclient.get(
-      "http://admin.oroodcom.com/private-api/category/get-names",
+      "https://admin.oroodcom.com/private-api/category/get-names",
       {
         headers: headers,
       }
@@ -34,7 +34,7 @@ export class CategotyService {
       Authorization: accessToken,
     });
     return this.httpclient.get(
-      "http://admin.oroodcom.com/private-api/category/filter?id=" + id,
+      "https://admin.oroodcom.com/private-api/category/filter?id=" + id,
       {
         headers: headers,
       }

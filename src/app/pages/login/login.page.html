@@ -3,29 +3,39 @@
     <div>
       <img src="assets/2.png" />
     </div>
-    <form #form="ngForm" (ngSubmit)="login(form)">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
       <ion-row>
         <ion-col style="margin-left: auto; margin-right: auto;" size="12">
-          <ion-item style="--background: whitesmoke;" class="ion-no-padding">
+          <ion-item class="ion-no-padding">
             <ion-label style="font-size: 14px;" position="floating"
               >Username</ion-label
             >
-            <ion-input name="username" type="text" ngModel required></ion-input>
+            <ion-input formControlName="username" inputmode="text"></ion-input>
           </ion-item>
+          <div *ngFor="let error of errorMessages.username">
+            <ng-container
+              *ngIf="username.hasError(error.type) && (username.diry || username.touched)"
+            >
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
 
-          <ion-item style="--background: whitesmoke;" class="ion-no-padding">
+          <ion-item class="ion-no-padding">
             <ion-label style="font-size: 14px;" position="floating"
               >Password</ion-label
             >
             <ion-input
-              name="password"
+              formControlName="password"
+              inputmode="password"
               type="password"
-              ngModel
-              required
             ></ion-input>
           </ion-item>
-          <div *ngIf="error" class="alert alert-danger">
-            {{ error }}
+          <div *ngFor="let error of errorMessages.password">
+            <ng-container
+              *ngIf="password.hasError(error.type) && (password.diry || password.touched)"
+            >
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
           </div>
         </ion-col>
       </ion-row>
@@ -34,10 +44,10 @@
           <ion-button
             size="large"
             type="submit"
-            [disabled]="form.invalid || error"
+            [disabled]="!loginForm.valid"
             expand="block"
           >
-            Sign In
+            Login
           </ion-button>
 
           <div class="m-top">

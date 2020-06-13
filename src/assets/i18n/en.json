@@ -24,7 +24,7 @@
     "save": "Save",
     "profile": "Profile",
     "home": "Home",
-    "contact_us": "Contact Us",
+    "Change_Password": "Change Password",
     "logout": "Logout",
     "language": "Language",
     "filter": "Filter"
@@ -41,5 +41,14 @@
     "fields_shop_rate": "Shop Rate",
     "fields_nearest_shops": "Nearest Shops",
     "fiedls_lowest_price": "Lowest Price"
+  },
+  "user_password": {
+    "old_password": "Old Password",
+    "new_password": "New Password",
+    "old_password_incorrect": "The old password you have entered is incorrect",
+    "old_password_length": "Old Password should contain at least 6 characters !",
+    "new_password_length": "New Password should contain at least 6 characters !",
+    "old_password_required": "Old Password is required !",
+    "new_password_required": "New Password is required !"
   }
 }

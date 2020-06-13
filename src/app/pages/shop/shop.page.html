@@ -1,16 +1,6 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="warning">
-    <ion-button (click)="loadMap()" shape="round" color="dark">
-      <ion-icon slot="start" name="locate"></ion-icon>
-      Where I Am
-    </ion-button>
-    <ion-title slot="end">Google Map</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <!-- <ion-card>
-    <img style="max-height: 200px;" src="{{shop.picture_url}}" />
+  <ion-card style="max-height: 250px;">
+    <img style="max-height: 150px;" src="{{shop.picture_url}}" />
     <ion-card-content>
       <ion-card-title style="text-align: center;" class="text-center">
         {{shop.name}}
@@ -48,40 +38,23 @@
         </ion-button>
       </ion-col>
     </ion-row>
-  </ion-card> -->
-  <ion-card style="height: 158px;">
-    <div class="map-wrapper">
-      <div id="map_center">
-        <img src="assets/marker.png" />
-      </div>
-      <div #map id="map"></div>
-    </div>
-
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3">
-          <b>Lattitude</b>
-        </ion-col>
-        <ion-col>
-          {{shop.latitude}}
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="3">
-          <b>Longitude</b>
-        </ion-col>
-        <ion-col>
-          {{shop.longitude}}
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="3">
-          <b>Address</b>
-        </ion-col>
-        <ion-col>
-          {{address}}
-        </ion-col>
-      </ion-row>
-    </ion-grid>
   </ion-card>
+  <!-- <ion-card style="height: auto; margin-top: 1rem;"> -->
+  <div class="map-wrapper">
+    <div id="map_center">
+      <img src="assets/marker.png" />
+    </div>
+    <div #map id="map"></div>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <b>Address</b>
+      </ion-col>
+      <ion-col>
+        {{address}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- </ion-card> -->
 </ion-content>

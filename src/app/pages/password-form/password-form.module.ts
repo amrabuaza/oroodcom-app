@@ -1,17 +1,19 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 
 import { IonicModule } from "@ionic/angular";
 
-import { LoginPage } from "./login.page";
+import { PasswordFormPage } from "./password-form.page";
+import { ModalFormPageModule } from "../modal-form/modal-form.module";
 import { TranslateModule } from "@ngx-translate/core";
+import { ChangePasswordPage } from "../change-password/change-password.page";
 
 const routes: Routes = [
   {
     path: "",
-    component: LoginPage,
+    component: PasswordFormPage,
   },
 ];
 
@@ -20,10 +22,10 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ModalFormPageModule,
     TranslateModule,
-    ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [LoginPage],
+  declarations: [PasswordFormPage],
 })
-export class LoginPageModule {}
+export class PasswordFormPageModule {}

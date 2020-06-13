@@ -14,7 +14,7 @@ export class ProfileService {
       Authorization: accessToken,
     });
     return this.httpclient.get(
-      "http://admin.oroodcom.com/private-api/user/get-user-profile",
+      "https://admin.oroodcom.com/private-api/user/get-user-profile",
       {
         headers: headers,
       }
@@ -27,7 +27,7 @@ export class ProfileService {
       Authorization: accessToken,
     });
     return this.httpclient.put(
-      "http://admin.oroodcom.com/private-api/user/update-user",
+      "https://admin.oroodcom.com/private-api/user/update-user",
       data,
       {
         headers: headers,

@@ -4,3 +4,10 @@
         <domain includeSubdomains="true">localhost</domain>
     </domain-config>
 </network-security-config>
+<!-- <network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">admin.oroodcom.com</domain>
+        <domain includeSubdomains="true">0.0.0.0</domain>
+        <domain includeSubdomains="true">160.153.128.31</domain>
+    </domain-config>
+</network-security-config> -->

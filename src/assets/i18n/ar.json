@@ -24,7 +24,7 @@
     "save": "حفظ",
     "profile": "الملف الشخصي",
     "home": "الصفحة الرئيسية",
-    "contact_us": "إتصل بنا",
+    "Change_Password": "تغيير كلمة السر",
     "logout": "تسجيل خروج",
     "language": "اللغة",
     "filter": "تصفية"
@@ -41,5 +41,14 @@
     "fields_shop_rate": "تقييم المتجر",
     "fields_nearest_shops": "أقرب المحلات",
     "fiedls_lowest_price": "أقرب المحلات"
+  },
+  "user_password": {
+    "old_password": "كلمة السر القديمه",
+    "new_password": "كلمة السر الجديده",
+    "old_password_incorrect": "كلمة المرور القديمة التي أدخلتها غير صحيحة",
+    "old_password_length": "يجب أن تحتوي كلمة المرور القديمة على 6 أحرف على الأقل!",
+    "new_password_length": "يجب أن تحتوي كلمة المرور الجديدة على 6 أحرف على الأقل!",
+    "old_password_required": "كلمة المرور القديمة مطلوبة!",
+    "new_password_required": "كلمة المرور الجديدة مطلوبة!"
   }
 }

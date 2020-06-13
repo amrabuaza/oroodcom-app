@@ -153,7 +153,15 @@ ion-select div .select-icon {
   display: none !important;
 }
 [dir="rtl"] {
-  // span {
-  //   color: green !important;
-  // }
+  .oldPrice {
+    color: rgb(102, 102, 102);
+    text-decoration-line: line-through;
+    padding-right: 1rem;
+    padding-left: 5px !important;
+    font-size: 12px;
+  }
+  .btn-icon {
+    margin-right: 0px !important;
+    margin-left: 10px;
+  }
 }

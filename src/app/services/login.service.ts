@@ -10,7 +10,7 @@ export class LoginService {
   sigin(data) {
     let headers = new HttpHeaders();
     return this.httpclient.post(
-      "http://admin.oroodcom.com/private-api/authorization/login",
+      "https://admin.oroodcom.com/private-api/authorization/login",
       data,
       {
         headers: new HttpHeaders({ "Content-Type": "application/json" }),

@@ -23,6 +23,8 @@ export class ShopPage implements OnInit {
   shop: IShop;
   latitude: number;
   longitude: number;
+  shopLat: number;
+  shopLong: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,6 +34,8 @@ export class ShopPage implements OnInit {
   ) {
     this.route.queryParams.subscribe((params) => {
       this.shop = JSON.parse(params["shop"]);
+      this.shopLat = Number.parseFloat(this.shop.latitude);
+      this.shopLong = Number.parseFloat(this.shop.longitude);
     });
   }
 
@@ -43,54 +47,34 @@ export class ShopPage implements OnInit {
     this.geolocation
       .getCurrentPosition()
       .then((resp) => {
-        this.latitude = resp.coords.latitude;
-        this.longitude = resp.coords.longitude;
+        this.latitude = this.shopLat;
+        this.longitude = this.shopLong;
 
-        let latLng = new google.maps.LatLng(
-          resp.coords.latitude,
-          resp.coords.longitude
-        );
+        let latLng = new google.maps.LatLng(this.shopLat, this.shopLong);
         let mapOptions = {
           center: latLng,
           zoom: 15,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
+          gestures: {
+            rotate: false,
+            tilt: false,
+            scroll: false,
+          },
         };
 
-        this.getAddressFromCoords(resp.coords.latitude, resp.coords.longitude);
+        this.getAddressFromCoords(this.shopLat, this.shopLong);
 
         this.map = new google.maps.Map(
           this.mapElement.nativeElement,
           mapOptions
         );
-
-        this.map.addListener("dragend", () => {
-          this.latitude = this.map.center.lat();
-          this.longitude = this.map.center.lng();
-
-          this.getAddressFromCoords(
-            this.map.center.lat(),
-            this.map.center.lng()
-          );
-        });
       })
       .catch((error) => {
         console.log("Error getting location", error);
       });
   }
 
-  loadMap2() {
-    let mapOptions = {
-      center: this.shop.longitude,
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-    };
-    this.getAddressFromCoords(this.shop.latitude, this.shop.longitude);
-
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-  }
-
   getAddressFromCoords(lattitude, longitude) {
-    console.log("getAddressFromCoords " + lattitude + " " + longitude);
     let options: NativeGeocoderOptions = {
       useLocale: true,
       maxResults: 5,
