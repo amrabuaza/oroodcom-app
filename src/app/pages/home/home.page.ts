@@ -38,7 +38,9 @@ export class HomePage implements OnInit {
   public items: IItem[];
   public categoires: ICategory[];
   public cat_id: string;
+  public username: string;
   private ContentLanguageKey = "content-language";
+
   constructor(
     private router: Router,
     private menu: MenuController,
@@ -54,7 +56,7 @@ export class HomePage implements OnInit {
     private http: Http,
     private sanitizer: DomSanitizer
   ) {}
-  public username: string;
+
   languageChanged() {
     localStorage.setItem(this.ContentLanguageKey, this.language);
     this.translateLaService.setLanguage(this.language);
@@ -80,13 +82,6 @@ export class HomePage implements OnInit {
     this.menu.open("first");
   }
 
-  getImg(id) {
-    var pic;
-    return this.itemService.getItemPic(id).subscribe((res) => {
-      return res["pictrue"];
-    });
-  }
-
   ngOnInit() {
     var lang;
     if (localStorage.getItem(this.ContentLanguageKey) === undefined) {
@@ -103,25 +98,6 @@ export class HomePage implements OnInit {
 
     this.itemService.getLatestItem().subscribe((response: IItemsResponse) => {
       this.items = response.items;
-      // this.items.map((item) => {
-      //   // this.itemService.getItemPic(item.id).subscribe((res) => {
-      //   //   item.img = res["picture"];
-      //   // });
-      //   try {
-      //     this.http
-      //       .get("https://cors-anywhere.herokuapp.com/" + item.picture)
-      //       .subscribe((res) => {
-      //         //item.img = res.json();
-      //         console.log(res.blob());
-      //       });
-      //   } catch (error) {
-      //     console.log(error);
-      //   }
-      // });
-      this.items.map((item) => {
-        var unsafeImageUrl = URL.createObjectURL(item.picture);
-        item.img = this.sanitizer.bypassSecurityTrustUrl(unsafeImageUrl);
-      });
     });
     this.categoryService.getCategories().subscribe((res: ICategoryResponse) => {
       this.categoires = res.names;
