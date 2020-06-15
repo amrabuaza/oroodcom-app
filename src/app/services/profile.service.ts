@@ -14,7 +14,7 @@ export class ProfileService {
       Authorization: accessToken,
     });
     return this.httpclient.get(
-      "https://admin.oroodcom.com/private-api/user/get-user-profile",
+      "https://cors-anywhere.herokuapp.com/http://admin.oroodcom.com/private-api/user/get-user-profile",
       {
         headers: headers,
       }
@@ -27,7 +27,7 @@ export class ProfileService {
       Authorization: accessToken,
     });
     return this.httpclient.put(
-      "https://admin.oroodcom.com/private-api/user/update-user",
+      "https://cors-anywhere.herokuapp.com/http://admin.oroodcom.com/private-api/user/update-user",
       data,
       {
         headers: headers,

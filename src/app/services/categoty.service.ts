@@ -17,7 +17,7 @@ export class CategotyService {
       Authorization: accessToken,
     });
     return this.httpclient.get(
-      "https://admin.oroodcom.com/private-api/category/get-names",
+      "https://cors-anywhere.herokuapp.com/http://admin.oroodcom.com/private-api/category/get-names",
       {
         headers: headers,
       }
@@ -34,7 +34,8 @@ export class CategotyService {
       Authorization: accessToken,
     });
     return this.httpclient.get(
-      "https://admin.oroodcom.com/private-api/category/filter?id=" + id,
+      "https://cors-anywhere.herokuapp.com/http://admin.oroodcom.com/private-api/category/filter?id=" +
+        id,
       {
         headers: headers,
       }

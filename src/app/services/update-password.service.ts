@@ -13,7 +13,7 @@ export class UpdatePasswordService {
       Authorization: accessToken,
     });
     return this.httpclient.patch(
-      "https://admin.oroodcom.com/private-api/user/change-password",
+      "https://cors-anywhere.herokuapp.com/http://admin.oroodcom.com/private-api/user/change-password",
       data,
       {
         headers: headers,

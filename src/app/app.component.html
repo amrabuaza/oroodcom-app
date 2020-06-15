@@ -2,8 +2,7 @@
   <ion-menu side="{{ menuSide }}" menuId="first" contentId="main">
     <ion-header>
       <ion-toolbar color="white">
-        <ion-title
-          ><ion-avatar> </ion-avatar>
+        <ion-title>
           <p style="font-size: 1rem; color: #00bcd4; text-align: center;">
             {{ username }}
           </p>
@@ -13,16 +12,16 @@
     <ion-content>
       <ion-list style="padding: 2rem;">
         <ion-item [routerLink]="['/home']">{{
-          "buttons.home" | translate: params
+          "buttons.home" | translate
         }}</ion-item>
         <ion-item [routerLink]="['/profile']">{{
-          "buttons.profile" | translate: params
+          "buttons.profile" | translate
         }}</ion-item>
         <ion-item [routerLink]="['/change-password']">{{
-          "buttons.Change_Password" | translate: params
+          "buttons.Change_Password" | translate
         }}</ion-item>
         <ion-item>
-          <ion-label>{{ "buttons.language" | translate: params }}</ion-label>
+          <ion-label>{{ "buttons.language" | translate }}</ion-label>
           <ion-select
             (ionChange)="languageChanged()"
             [(ngModel)]="language"
@@ -35,7 +34,7 @@
         </ion-item>
         <ion-item lines="none"
           ><ion-button (click)="handleLogout()">
-            {{ "buttons.logout" | translate: params }}
+            {{ "buttons.logout" | translate }}
           </ion-button>
         </ion-item>
       </ion-list>

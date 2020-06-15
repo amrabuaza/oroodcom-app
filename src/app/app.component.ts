@@ -16,6 +16,7 @@ export class AppComponent {
   private ContentLanguageKey = "content-language";
   public language: string;
   public menuSide = "";
+  username: string;
 
   constructor(
     private platform: Platform,
@@ -39,6 +40,7 @@ export class AppComponent {
       this.menuSide = "end";
     }
     this.language = lang;
+    this.username = localStorage.getItem("username");
   }
 
   languageChanged() {

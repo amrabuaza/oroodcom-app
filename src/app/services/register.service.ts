@@ -10,7 +10,7 @@ export class RegisterService {
   signup(data) {
     let headers = new HttpHeaders();
     return this.httpclient.post(
-      "https://admin.oroodcom.com/private-api/authorization/signup",
+      "https://cors-anywhere.herokuapp.com/http://admin.oroodcom.com/private-api/authorization/signup",
       data,
       {
         headers: new HttpHeaders({ "Content-Type": "application/json" }),

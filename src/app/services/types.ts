@@ -84,6 +84,7 @@ export interface IItem {
   description: string;
   picture: string;
   shop: IShop;
+  img: any;
 }
 
 export interface IItemsResponse {

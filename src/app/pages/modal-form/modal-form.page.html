@@ -5,22 +5,20 @@
         <ion-col style="margin-left: auto; margin-right: auto;" size="12">
           <ion-item class="ion-no-padding">
             <ion-label style="font-size: 14px;" position="floating"
-              >{{'user_profile.field_username' | translate:params}}</ion-label
+              >{{'user_profile.field_username' | translate}}</ion-label
             >
             <ion-input formControlName="username" inputmode="text"></ion-input>
           </ion-item>
           <div *ngFor="let error of errorMessages.username">
             <ng-container
-              *ngIf="username.hasError(error.type) && (username.diry || username.touched)"
+              *ngIf="username.hasError(error.type) && (username.touched)"
             >
-              <small class="error-message"
-                >{{error.message| translate:params}}</small
-              >
+              <small class="error-message">{{error.message| translate}}</small>
             </ng-container>
           </div>
           <ion-item class="ion-no-padding">
             <ion-label style="font-size: 14px;" position="floating"
-              >{{'user_profile.field_first_name' | translate:params}}</ion-label
+              >{{'user_profile.field_first_name' | translate}}</ion-label
             >
             <ion-input
               formControlName="first_name"
@@ -29,42 +27,34 @@
           </ion-item>
           <div *ngFor="let error of errorMessages.first_name">
             <ng-container
-              *ngIf="first_name.hasError(error.type) && (first_name.diry || first_name.touched)"
+              *ngIf="first_name.hasError(error.type) && (first_name.touched)"
             >
-              <small class="error-message"
-                >{{error.message| translate:params}}</small
-              >
+              <small class="error-message">{{error.message| translate}}</small>
             </ng-container>
           </div>
           <ion-item class="ion-no-padding">
             <ion-label style="font-size: 14px;" position="floating"
-              >{{'user_profile.field_last_name' | translate:params}}</ion-label
+              >{{'user_profile.field_last_name' | translate}}</ion-label
             >
             <ion-input formControlName="last_name" inputmode="text"></ion-input>
           </ion-item>
           <div *ngFor="let error of errorMessages.last_name">
             <ng-container
-              *ngIf="last_name.hasError(error.type) && (last_name.diry || last_name.touched)"
+              *ngIf="last_name.hasError(error.type) && (last_name.touched)"
             >
-              <small class="error-message"
-                >{{error.message| translate:params}}</small
-              >
+              <small class="error-message">{{error.message| translate}}</small>
             </ng-container>
           </div>
 
           <ion-item class="ion-no-padding">
             <ion-label style="font-size: 14px;" position="floating"
-              >{{'user_profile.field_email' | translate:params}}</ion-label
+              >{{'user_profile.field_email' | translate}}</ion-label
             >
             <ion-input formControlName="email" inputmode="email"></ion-input>
           </ion-item>
           <div *ngFor="let error of errorMessages.email">
-            <ng-container
-              *ngIf="email.hasError(error.type) && (email.diry || email.touched)"
-            >
-              <small class="error-message"
-                >{{error.message| translate:params}}</small
-              >
+            <ng-container *ngIf="email.hasError(error.type) && (email.touched)">
+              <small class="error-message">{{error.message| translate}}</small>
             </ng-container>
           </div>
         </ion-col>
@@ -77,7 +67,7 @@
             [disabled]="!profileForm.valid"
             expand="block"
           >
-            {{'buttons.save' | translate:params}}
+            {{'buttons.save' | translate}}
           </ion-button>
         </ion-col>
       </ion-row>

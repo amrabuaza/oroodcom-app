@@ -10,6 +10,7 @@ export class GetItemsService {
   getLatestItem() {
     const accessToken = "Bearer " + localStorage.getItem("access-token");
     var lang = localStorage.getItem("content-language");
+
     if (lang === undefined || lang === null) {
       localStorage.setItem("content-language", "en");
       lang = "en";
@@ -20,7 +21,7 @@ export class GetItemsService {
       Authorization: accessToken,
     });
     return this.httpclient.get(
-      "https://admin.oroodcom.com/private-api/item/get-latest-items",
+      "https://cors-anywhere.herokuapp.com/http://admin.oroodcom.com/private-api/item/get-latest-items",
       {
         headers: headers,
       }
@@ -40,7 +41,23 @@ export class GetItemsService {
       Authorization: accessToken,
     });
     return this.httpclient.get(
-      "https://admin.oroodcom.com/private-api/item/get-items-name",
+      "https://cors-anywhere.herokuapp.com/http://admin.oroodcom.com/private-api/item/get-items-name",
+      {
+        headers: headers,
+      }
+    );
+  }
+
+  getItemPic(id) {
+    const accessToken = "Bearer " + localStorage.getItem("access-token");
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Accept-Language": localStorage.getItem("content-language"),
+      Authorization: accessToken,
+    });
+    return this.httpclient.get(
+      "https://cors-anywhere.herokuapp.com/http://admin.oroodcom.com/private-api/item/get-item-picture?id=" +
+        id,
       {
         headers: headers,
       }
@@ -56,7 +73,7 @@ export class GetItemsService {
       Authorization: accessToken,
     });
     return this.httpclient.post(
-      "https://admin.oroodcom.com/private-api/item/filter",
+      "https://cors-anywhere.herokuapp.com/http://admin.oroodcom.com/private-api/item/filter",
       data,
       {
         headers: headers,

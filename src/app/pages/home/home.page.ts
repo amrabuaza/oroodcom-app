@@ -18,6 +18,9 @@ import { TranslateLaService } from "src/app/services/translate-la.service";
 import { CategotyService } from "src/app/services/categoty.service";
 import { AuthService } from "src/app/services/auth.service";
 import { SearchFormPage } from "../search-form/search-form.page";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Http } from "@angular/http";
+import { DomSanitizer } from "@angular/platform-browser";
 
 const styleAr =
   localStorage.getItem("content-language") !== null &&
@@ -46,7 +49,10 @@ export class HomePage implements OnInit {
     private navCtrl: NavController,
     private authSerivce: AuthService,
     private modalCtrl: ModalController,
-    private platform: Platform
+    private platform: Platform,
+    private httpclient: HttpClient,
+    private http: Http,
+    private sanitizer: DomSanitizer
   ) {}
   public username: string;
   languageChanged() {
@@ -73,6 +79,14 @@ export class HomePage implements OnInit {
     this.menu.enable(true, "first");
     this.menu.open("first");
   }
+
+  getImg(id) {
+    var pic;
+    return this.itemService.getItemPic(id).subscribe((res) => {
+      return res["pictrue"];
+    });
+  }
+
   ngOnInit() {
     var lang;
     if (localStorage.getItem(this.ContentLanguageKey) === undefined) {
@@ -89,6 +103,25 @@ export class HomePage implements OnInit {
 
     this.itemService.getLatestItem().subscribe((response: IItemsResponse) => {
       this.items = response.items;
+      // this.items.map((item) => {
+      //   // this.itemService.getItemPic(item.id).subscribe((res) => {
+      //   //   item.img = res["picture"];
+      //   // });
+      //   try {
+      //     this.http
+      //       .get("https://cors-anywhere.herokuapp.com/" + item.picture)
+      //       .subscribe((res) => {
+      //         //item.img = res.json();
+      //         console.log(res.blob());
+      //       });
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // });
+      this.items.map((item) => {
+        var unsafeImageUrl = URL.createObjectURL(item.picture);
+        item.img = this.sanitizer.bypassSecurityTrustUrl(unsafeImageUrl);
+      });
     });
     this.categoryService.getCategories().subscribe((res: ICategoryResponse) => {
       this.categoires = res.names;

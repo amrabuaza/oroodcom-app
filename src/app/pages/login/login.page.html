@@ -14,7 +14,7 @@
           </ion-item>
           <div *ngFor="let error of errorMessages.username">
             <ng-container
-              *ngIf="username.hasError(error.type) && (username.diry || username.touched)"
+              *ngIf="username.hasError(error.type) && (username.touched)"
             >
               <small class="error-message">{{error.message}}</small>
             </ng-container>
@@ -32,7 +32,7 @@
           </ion-item>
           <div *ngFor="let error of errorMessages.password">
             <ng-container
-              *ngIf="password.hasError(error.type) && (password.diry || password.touched)"
+              *ngIf="password.hasError(error.type) && (password.touched)"
             >
               <small class="error-message">{{error.message}}</small>
             </ng-container>

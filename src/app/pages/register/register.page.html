@@ -20,7 +20,7 @@
         </ion-item>
         <div *ngFor="let error of errorMessages.username">
           <ng-container
-            *ngIf="username.hasError(error.type) && (username.diry || username.touched)"
+            *ngIf="username.hasError(error.type) && (username.touched)"
           >
             <small class="error-message">{{error.message}}</small>
           </ng-container>
@@ -33,9 +33,7 @@
           <ion-input formControlName="email" inputmode="email"></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.email">
-          <ng-container
-            *ngIf="email.hasError(error.type) && (email.diry || email.touched)"
-          >
+          <ng-container *ngIf="email.hasError(error.type) && (email.touched)">
             <small class="error-message">{{error.message}}</small>
           </ng-container>
         </div>
@@ -52,7 +50,7 @@
         </ion-item>
         <div *ngFor="let error of errorMessages.password">
           <ng-container
-            *ngIf="password.hasError(error.type) && (password.diry || password.touched)"
+            *ngIf="password.hasError(error.type) && (password.touched)"
           >
             <small class="error-message">{{error.message}}</small>
           </ng-container>
