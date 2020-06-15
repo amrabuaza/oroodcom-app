@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
   <ion-card style="max-height: 250px;">
-    <img style="max-height: 150px;" src="{{shop.picture_url}}" />
+    <img style="max-height: 150px;" [src]="shop.img" />
     <ion-card-content>
       <ion-card-title style="text-align: center;" class="text-center">
         {{shop.name}}

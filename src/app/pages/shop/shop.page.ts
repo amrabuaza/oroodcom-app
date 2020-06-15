@@ -8,6 +8,8 @@ import {
 } from "@ionic-native/native-geocoder/ngx";
 import { IShop } from "src/app/services/types";
 import { Geolocation } from "@ionic-native/geolocation/ngx";
+import { ImageReaderService } from "src/app/services/image-reader.service";
+import { DomSanitizer } from "@angular/platform-browser";
 
 declare var google;
 
@@ -30,10 +32,16 @@ export class ShopPage implements OnInit {
     private route: ActivatedRoute,
     private modalCtrl: ModalController,
     private geolocation: Geolocation,
-    private nativeGeocoder: NativeGeocoder
+    private nativeGeocoder: NativeGeocoder,
+    private imgService: ImageReaderService,
+    private sanitizer: DomSanitizer
   ) {
     this.route.queryParams.subscribe((params) => {
       this.shop = JSON.parse(params["shop"]);
+      this.imgService.getShopPic(this.shop.item_id).subscribe((res) => {
+        let tempImg = URL.createObjectURL(res.blob());
+        this.shop.img = this.sanitizer.bypassSecurityTrustResourceUrl(tempImg);
+      });
       this.shopLat = Number.parseFloat(this.shop.latitude);
       this.shopLong = Number.parseFloat(this.shop.longitude);
     });

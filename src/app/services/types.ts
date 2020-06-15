@@ -72,6 +72,8 @@ export interface IShop {
   close_at: string;
   rate: number;
   picture_url: string;
+  item_id: string;
+  img: any;
 }
 
 /* Item */

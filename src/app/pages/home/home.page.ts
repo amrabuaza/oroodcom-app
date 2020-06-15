@@ -21,6 +21,7 @@ import { SearchFormPage } from "../search-form/search-form.page";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Http } from "@angular/http";
 import { DomSanitizer } from "@angular/platform-browser";
+import { ImageReaderService } from "src/app/services/image-reader.service";
 
 const styleAr =
   localStorage.getItem("content-language") !== null &&
@@ -40,6 +41,7 @@ export class HomePage implements OnInit {
   public cat_id: string;
   public username: string;
   private ContentLanguageKey = "content-language";
+  public testImg: any;
 
   constructor(
     private router: Router,
@@ -54,7 +56,8 @@ export class HomePage implements OnInit {
     private platform: Platform,
     private httpclient: HttpClient,
     private http: Http,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private imgService: ImageReaderService
   ) {}
 
   languageChanged() {
@@ -68,7 +71,9 @@ export class HomePage implements OnInit {
     location.reload();
   }
 
-  showProfile(shop) {
+  showShop(item) {
+    let shop = item.shop;
+    shop.item_id = item.id;
     let navigationExtras: NavigationExtras = {
       queryParams: {
         shop: JSON.stringify(shop),
@@ -98,6 +103,12 @@ export class HomePage implements OnInit {
 
     this.itemService.getLatestItem().subscribe((response: IItemsResponse) => {
       this.items = response.items;
+      this.items.map((item) => {
+        this.imgService.getItemPic(item.id).subscribe((res) => {
+          let tempImg = URL.createObjectURL(res.blob());
+          item.img = this.sanitizer.bypassSecurityTrustResourceUrl(tempImg);
+        });
+      });
     });
     this.categoryService.getCategories().subscribe((res: ICategoryResponse) => {
       this.categoires = res.names;
@@ -129,7 +140,6 @@ export class HomePage implements OnInit {
   }
 
   async presentModal() {
-    var data = { message: "hello world" };
     const modal = await this.modalCtrl.create({
       component: SearchFormPage,
       cssClass: "modal-transparency",
