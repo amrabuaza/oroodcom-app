@@ -38,10 +38,10 @@ export class ShopPage implements OnInit {
   ) {
     this.route.queryParams.subscribe((params) => {
       this.shop = JSON.parse(params["shop"]);
-      this.imgService.getShopPic(this.shop.item_id).subscribe((res) => {
-        let tempImg = URL.createObjectURL(res.blob());
-        this.shop.img = this.sanitizer.bypassSecurityTrustResourceUrl(tempImg);
-      });
+      // this.imgService.getShopPic(this.shop.item_id).subscribe((res) => {
+      //   let tempImg = URL.createObjectURL(res.blob());
+      //   this.shop.img = this.sanitizer.bypassSecurityTrustResourceUrl(tempImg);
+      // });
       this.shopLat = Number.parseFloat(this.shop.latitude);
       this.shopLong = Number.parseFloat(this.shop.longitude);
     });

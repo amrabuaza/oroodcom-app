@@ -103,12 +103,12 @@ export class HomePage implements OnInit {
 
     this.itemService.getLatestItem().subscribe((response: IItemsResponse) => {
       this.items = response.items;
-      this.items.map((item) => {
-        this.imgService.getItemPic(item.id).subscribe((res) => {
-          let tempImg = URL.createObjectURL(res.blob());
-          item.img = this.sanitizer.bypassSecurityTrustResourceUrl(tempImg);
-        });
-      });
+      // this.items.map((item) => {
+      //   this.imgService.getItemPic(item.id).subscribe((res) => {
+      //     let tempImg = URL.createObjectURL(res.blob());
+      //     item.img = this.sanitizer.bypassSecurityTrustResourceUrl(tempImg);
+      //   });
+      // });
     });
     this.categoryService.getCategories().subscribe((res: ICategoryResponse) => {
       this.categoires = res.names;

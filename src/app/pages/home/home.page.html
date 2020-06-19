@@ -61,7 +61,10 @@
   <ion-grid>
     <ion-list>
       <ion-card *ngFor="let item of items">
-        <img style="max-width: 300px; max-height: 200px;" [src]="item.img" />
+        <img
+          style="max-width: 300px; max-height: 200px;"
+          src="{{item.picture}}"
+        />
 
         <ion-card-content>
           <ion-card-title style="text-align: center;" class="text-center">
